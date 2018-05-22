@@ -10,3 +10,19 @@
 .cursor-pointer{
     cursor: pointer;
 }
+
+.form-control-feedback-btn {
+    background: #5C6BC0 !important;
+    color: #fff;
+    padding-top: 7px !important;
+    font-size: 15px !important;
+    width: 30px !important;
+    height: 30px !important;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    text-align: center;    
+}

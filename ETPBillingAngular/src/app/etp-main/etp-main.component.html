@@ -105,11 +105,11 @@
 
                   <div class="col-md-4 col-sm-4 col-xs-6">
                     <input type="text" id="" name="item_no" class="form-control col-md-7 col-xs-12" placeholder="044APMWWPANT">
-                    <div class="fa fa-search  right cursor-pointer"></div>
+                    <div class="fa fa-search form-control-feedback-btn right cursor-pointer" aria-hidden="true" (click)="childModal.show()"></div>
                     <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
                     <!-- <app-item-lookup #myModal></app-item-lookup> -->
 
-                    <button type="button" class="btn btn-primary" (click)="childModal.show()">Open modal</button>
+                    <!-- <button type="button" class="btn btn-primary" (click)="childModal.show()">Open modal</button> -->
                     <app-item-lookup #childModal [title]="'Quick Item LookUp'">
                       <!-- <div class="modal-body">
                         Hi heloo </div> -->

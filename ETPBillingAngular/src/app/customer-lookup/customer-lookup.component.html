@@ -53,26 +53,23 @@
         </div>
         <div class="filter-input">
           <div class="filter-input-text">
-            <input type="text" id="flt_itemNumber" [(ngModel)]="itemNumber" class="input-box" name="flt_itemNumber">
+            <input type="text" id="flt_itemNumber" class="input-box" name="flt_itemNumber">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_name" [(ngModel)]="name" class="input-box" name="flt_name">
+            <input type="text" id="flt_name" class="input-box" name="flt_name">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_itemType" [(ngModel)]="itemType" class="input-box" name="flt_itemType">
+            <input type="text" id="flt_itemType" class="input-box" name="flt_itemType">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_prodGroup" [(ngModel)]="prodGroup" class="input-box" name="flt_prodGroup">
+            <input type="text" id="flt_prodGroup" class="input-box" name="flt_prodGroup">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_salesPrice" [(ngModel)]="salesPrice" class="input-box" name="flt_salesPrice">
-          </div>
-          <div class="filter-input-text">
-            <div class="fa fa-search form-control-feedback-btn right cursor-pointer" aria-hidden="true" (click)="searchProduct()"></div>
+            <input type="text" id="flt_salesPrice" class="input-box" name="flt_salesPrice">
           </div>
         </div>
 
-        <div class="tbl-item table table-striped s1">
+        <div class="tbl-item">
           <div class="tbl-header">
             <div class="filter-input-text">
               Item Number
@@ -91,22 +88,21 @@
             </div>
           </div>
           <div class="tbl-row">
-            <div class="row" [ngClass]="{'row-hover': idx === tmpIndex }" *ngFor="let data of objItem; let idx = index" (mouseenter)="tmpIndex = idx"
-              (mouseleave)="tmpIndex = 0" (dblclick)="selectData()">
+            <div class="row" *ngFor="let data of objItem">
               <div class="filter-input-row">
-                {{data.itemNumber}}
+                {{data.productInfo[0].itemNumber}}
               </div>
               <div class="filter-input-row">
-                {{data.itemName}}
+                {{data.productInfo[0].itemName}}
               </div>
               <div class="filter-input-row">
-                {{data.itemDescription}}
+                {{data.productInfo[0].itemDescription}}
+              </div>
+              <div class="filter-input-row"> 
+                {{data.productInfo[0].productGroup}}
               </div>
               <div class="filter-input-row">
-                {{data.productGroup}}
-              </div>
-              <div class="filter-input-row">
-                {{data.salesPrice}}
+                {{data.productInfo[0].salesPrice}}
               </div>
             </div>
           </div>
@@ -115,9 +111,9 @@
 
       <div class="modal-footer">
         <div class="pull-left">
-          <button type="button" class="btn btn-default" (click)="selectData()" disabled="true">Ok</button>
+          <button type="button" class="btn btn-default" disabled="true">Ok</button>
           <button type="button" class="btn btn-default" disabled="true">More</button>
-          <button type="button" class="btn btn-default" (click)="cancel()"> Cancel </button>
+          <button type="button" class="btn btn-default" (click)="hide()"> Cancel </button>
           <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
         </div>
       </div>

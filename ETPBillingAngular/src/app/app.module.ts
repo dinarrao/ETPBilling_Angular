@@ -8,6 +8,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { EtpMainComponent } from './etp-main/etp-main.component';
 import { ItemLookupComponent } from './item-lookup/item-lookup.component';
+import { CustomerLookupComponent } from './customer-lookup/customer-lookup.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { CommonService } from './common.service';
@@ -17,7 +18,8 @@ import { CommonService } from './common.service';
     AppComponent,
     LoginComponent,
     EtpMainComponent,
-    ItemLookupComponent
+    ItemLookupComponent,
+    CustomerLookupComponent
   ],
   imports: [
     BrowserModule,
