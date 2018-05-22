@@ -1,0 +1,43 @@
+[{
+   "companyInfo":{
+      "companyID":"999",
+      "counterNumber":1,
+      "division":"888",
+      "warehouse":"US01"
+   },
+   "messageInfo":{
+      "loginAttemptMsg":"",
+      "loginAttemptStatus":"",
+      "numberOfRecords":"20",
+      "processMsg":"Displaying 20 records. Please narrow down search...",
+      "statusCode":"0",
+      "statusMsg":"Success"
+   },
+   "productInfo":[
+      {
+         "HSNCode":"62034100",
+         "UOM":"PCS",
+         "aliasNumber":"",
+         "balance":14.0,
+         "imageFileName":"http://172.24.1.56:7002/ETPStoreServiceV5.5/ProductImageDownloadServlet?imagename=044APMWWPANTS-001-00001.jpg",
+         "itemDescription":"Black Large",
+         "itemName":"ALLEN SOLLY MEN PANTS INTEGRAT",
+         "itemNumber":"044APMWWPANTS-001-00001",
+         "location":"APP01",
+         "productGroup":"MN-WW",
+         "salesPrice":60000.0
+      }
+   ],
+   "productInputInfo":{
+      "aliasNumber":"",
+      "inputParameter":"",
+      "itemDescription":"",
+      "itemGroup":"",
+      "itemName":"",
+      "itemNumber":""
+   },
+   "requestInfo":{
+      "requestKey":"UNpMbqpWd0wIdNuNBugWmVlUnMNvwTPobwvZcXFXZZ2WXiIdWKSRsnGVTpi0dsAB"
+   }
+}
+]

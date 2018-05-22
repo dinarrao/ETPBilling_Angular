@@ -1,0 +1,292 @@
+<!--Tabs Start-->
+<div id="exTab1" class="">
+  <ul class="nav nav-pills">
+
+    <li id="counter1" class="pull-left" style="display: none;">
+      <h5 class="shift">COUNTER:1</h5>
+    </li>
+
+    <li class="active" id="show_sidebar">
+      <a href="#1a" data-toggle="pill">Billing</a>
+    </li>
+
+    <li id="show_sidebar">
+      <a href="#2a" data-toggle="pill">Return</a>
+    </li>
+
+    <li id="show_sidebar">
+      <a href="#3a" data-toggle="pill">Order</a>
+    </li>
+
+    <li id="show_sidebar">
+      <a href="#4a" data-toggle="pill">Omni channel</a>
+    </li>
+
+    <li id="show_sidebar">
+      <a href="#5a" data-toggle="pill">Lookup</a>
+    </li>
+
+    <li id="show_sidebar">
+      <a href="#6a" data-toggle="pill">Cash mgmt.</a>
+    </li>
+
+    <li id="kpi">
+      <a href="#7a" data-toggle="pill">Kpi</a>
+    </li>
+
+    <li class="pull-right">
+      <h5 class="shift">SHIFT:1</h5>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="1a">
+
+      <div class="row">
+
+        <!--Billing Inner tab-->
+        <div id="exTab2">
+
+          <div class="bg-white">
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="#1b" data-toggle="pill">Bill</a>
+              </li>
+
+              <li>
+                <a href="#2b" data-toggle="pill">Lost Sales</a>
+              </li>
+
+
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="1b">
+
+              <div class="bg-white row">
+                <div class="form-group">
+
+                  <label class="control-label col-md-2 col-sm-2 col-xs-6">Cust. ID/Mobile No.
+                  </label>
+
+                  <div class="col-md-4 col-sm-4">
+                    <input type="text" id="" name="" class="form-control col-md-7 col-xs-12" placeholder="WALK-IN">
+                    <span class="fa fa-search form-control-feedback right cursor-pointer" aria-hidden="true"></span>
+                  </div>
+
+
+                  <label class="control-label col-md-2 col-sm-2 pl-4">Name
+                  </label>
+
+                  <div class="col-md-4 col-sm-4" id="input-name">
+
+                    <input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12" placeholder="WALK-IN">
+
+                  </div>
+
+                </div>
+                <!--form-group-->
+                <div class="form-group">
+
+                  <label class="control-label col-md-2 col-sm-2 col-xs-12">Sales Person
+                  </label>
+
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <input type="text" id="" name="sales_person" class="form-control col-md-7 col-xs-12" value="01-SUZAN">
+                    <span class="fa fa-search form-control-feedback right cursor-pointer" aria-hidden="true"></span>
+                  </div>
+
+
+
+                  <label class="control-label col-md-2 col-sm-2 pl-4">Item No.
+                  </label>
+
+                  <div class="col-md-4 col-sm-4 col-xs-6">
+                    <input type="text" id="" name="item_no" class="form-control col-md-7 col-xs-12" placeholder="044APMWWPANT">
+                    <div class="fa fa-search  right cursor-pointer"></div>
+                    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+                    <!-- <app-item-lookup #myModal></app-item-lookup> -->
+
+                    <button type="button" class="btn btn-primary" (click)="childModal.show()">Open modal</button>
+                    <app-item-lookup #childModal [title]="'Quick Item LookUp'">
+                      <!-- <div class="modal-body">
+                        Hi heloo </div> -->
+                    </app-item-lookup>
+
+                  </div>
+
+                </div>
+                <!--form-group-->
+
+
+              </div>
+              <!--row-->
+
+              <div class="row table-row mt-10">
+
+                <div class="h-300">
+                  <div class="table table-responsive">
+                    <table class="table table-striped s1">
+                      <thead style="background-color: #5D72AB; color: white;">
+                        <tr role="row">
+                          <th>No.</th>
+                          <th>Item No.</th>
+                          <th>Item Name</th>
+                          <th>LN.</th>
+                          <th>Qty.</th>
+                          <th>Sales Price</th>
+                          <th>Dlao.</th>
+                          <th>Chrg.</th>
+                          <th>Tax</th>
+                          <th>Amount</th>
+                          <th>Salesperson</th>
+                          <th>Location</th>
+                          <th>UOM</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr class="grid">
+                          <td scope="row" class="text-right">1</td>
+                          <td>044APMWWPANT...</td>
+                          <td>ALLEN SOLLY MEN PANTS...</td>
+                          <td></td>
+                          <td class="text-right">1</td>
+                          <td class="text-right">7</td>
+                          <td class="text-right">0</td>
+                          <td class="text-right">0</td>
+                          <td class="text-right">0</td>
+                          <td class="text-right">7</td>
+                          <td>01-SUZAN</td>
+                          <td>APP01</td>
+                          <td>PCS</td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 height4">
+                  <i class="fa fa-trash-o"></i>
+
+                  <span class="mrl-35">No. Of Items - 5</span>
+
+                  <span>Total Qty. - 1200</span>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <div class="scroll-bar">
+                    <p></p>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+              <!--row-->
+              <div class="row mt-10" id="item-amount">
+                <div class="col-md-4 col-sm-4 p-0">
+                  <div class="bg-white p-0 text-center item-img">
+                    <img src="assets/image/items/1.png" class="item1">
+                  </div>
+                  <div class="bg-white p-0 text-center item-img">
+                    <img src="assets/image/items/2.jpg" class="item2" style="display: none;">
+
+                    <img src="assets/image/items/2.jpg" class="item3" style="display: none;">
+
+                    <img src="assets/image/items/3.jpg" class="item4" style="display: none;">
+
+                    <img src="assets/image/items/4.jpg" class="item5" style="display: none;">
+
+
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-4 prl-6">
+                  <div class="bg-white p-0">
+                    <table class="table table-striped" id="amount-table">
+
+                      <tbody>
+                        <tr>
+                          <th scope="row" style="font-weight: normal">Gross Amount</th>
+                          <th class="text-right" style="font-weight: normal">500.00</th>
+
+                        </tr>
+                        <tr>
+                          <th scope="row" style="font-weight: normal">Charges</th>
+                          <th class="text-right" style="font-weight: normal">00.00</th>
+
+                        </tr>
+                        <tr>
+                          <th scope="row" style="font-weight: normal">Discount</th>
+                          <th class="text-right" style="font-weight: normal">47.75</th>
+
+                        </tr>
+
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>Net Amount</th>
+                          <th class="text-right fs-m">452.25</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                    <!--table end-->
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-4 p-0 text-center">
+
+                  <table class="table table-striped" id="amount-table-green">
+
+                    <tbody>
+                      <tr>
+                        <th scope="row">Received</th>
+                        <th class="text-right fs-m">500.00</th>
+
+                      </tr>
+                      <tr>
+                        <th scope="row" style="font-weight: normal">Balance</th>
+                        <th class="text-right" style="font-weight: normal">00.00</th>
+
+                      </tr>
+
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Charge Due</th>
+                        <th class="text-right fs-m">47.75</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <!--table end-->
+
+                  <button class="save-btn" style="font-weight: normal">SAVE &amp; PRINT</button>
+
+                </div>
+              </div>
+              <!--row-->
+
+
+            </div>
+            <!--tab-pane 1b-->
+
+            <div class="tab-pane" id="2b">
+              <h3>Lost Sales</h3>
+            </div>
+            <!--tab-pane 2a-->
+
+          </div>
+        </div>
+        <!--Billing Inner tab end-->
+      </div>
+      <!--row-->
+
+    </div>
+    <!--tab-pane 1a-->
+
+  </div>
+  <!--tab-content-->
+</div>
+<!--exTab1-->

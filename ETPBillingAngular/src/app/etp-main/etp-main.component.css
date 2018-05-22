@@ -1,0 +1,12 @@
+.tbl-header {
+    /* float: left; */
+    height: 55px;
+}
+
+.scroll-bar{
+    overflow-x: auto;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

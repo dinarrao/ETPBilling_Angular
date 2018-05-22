@@ -1,0 +1,41 @@
+<div class="table table-responsive">
+
+                    <div class="table table-striped s1 scroll-bar">
+                      <div style="background-color: #5D72AB; color: white;">
+                        <div role="row" class="tbl-header">
+                          <div class="col-md-1">No.</div>
+                          <div class="col-md-2">Item No.</div>
+                          <div class="col-md-2">Item Name</div>
+                          <div class="col-md-1">LN.</div>
+                          <div class="col-md-1">Qty.</div>
+                          <div class="col-md-1">Sales Price</div>
+                          <div class="col-md-1">Dlao.</div>
+                          <div class="col-md-1">Chrg.</div>
+                          <div class="col-md-1">Tax</div>
+                          <div class="col-md-1">Amount</div>
+                          <div class="col-md-1">Salesperson</div>
+                          <div class="col-md-1">Location</div>
+                          <div class="col-md-1">UOM</div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="grid">
+                          <div scope="row" class="text-right col-md-1">1</div>
+                          <div class="col-md-2">044APMWWPANT...</div>
+                          <div class="col-md-2">ALLEN SOLLY MEN PANTS...</div>
+                          <div class="col-md-1"></div>
+                          <div class="text-right col-md-1">1</div>
+                          <div class="text-right col-md-1">7</div>
+                          <div class="text-right col-md-1">0</div>
+                          <div class="text-right col-md-1">0</div>
+                          <div class="text-right col-md-1">0</div>
+                          <div class="text-right col-md-1">7</div>
+                          <div class="col-md-1">01-SUZAN</div>
+                          <div class="col-md-1">APP01</div>
+                          <div class="col-md-1">PCS</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--table end-->
+
+                  </div>
