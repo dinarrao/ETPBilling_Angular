@@ -4,7 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { EtpMainComponent } from './etp-main/etp-main.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  // { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: '', component: LoginComponent },
   { path: 'index', component: EtpMainComponent }
 ];
 

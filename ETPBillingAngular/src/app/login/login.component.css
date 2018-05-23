@@ -1,0 +1,36 @@
+.login-page
+{
+    background-color: #464b8b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+
+}
+.login-panel
+{
+    background-color: #e2e4f0;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 330px;
+    height: 350px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 10px;
+}
+.login-header
+{
+    color:#1f4570;
+    margin-bottom: 20px;
+}
+.btn
+{
+    width: 50%;
+    margin: 0 auto;
+}

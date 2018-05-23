@@ -14,6 +14,8 @@ import { CustomerLookupComponent } from './customer-lookup/customer-lookup.compo
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { CommonService } from './common.service';
 import { SharedService } from './shared.service';
+import { DataService } from './data.service';
+import { ClassUtils } from './ClassUtils';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { SharedService } from './shared.service';
   ],
   providers: [
     CommonService,
-    SharedService
+    SharedService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })
