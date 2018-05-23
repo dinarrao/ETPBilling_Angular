@@ -50,41 +50,41 @@ export class DataService {
       );
   }
 
-  Get_StoreDetails_Data_Server(_SearchText: string): Observable<any> {
-    return this.http.post<ClassStoreDetails>(this.getStoreDetails_api, "{\"searchText\" : \"" + _SearchText + "\"}", httpOptions).pipe(
-      catchError(this.handleError('Get_StoreDetails_Data_Server', null))
-    );
-  }
+  // Get_StoreDetails_Data_Server(_SearchText: string): Observable<any> {
+  //   return this.http.post<ClassStoreDetails>(this.getStoreDetails_api, "{\"searchText\" : \"" + _SearchText + "\"}", httpOptions).pipe(
+  //     catchError(this.handleError('Get_StoreDetails_Data_Server', null))
+  //   );
+  // }
 
-  Get_Dsr_Data_Server(_Date: string): Observable<any> {
-    return this.http.post<ClassDsrReport>(this.dsr_api, "{\"date\" : \"" + _Date + "\"}", httpOptions).pipe(
-      catchError(this.handleError('Get_Dsr_Data_Server', null))
-    );
-  }
+  // Get_Dsr_Data_Server(_Date: string): Observable<any> {
+  //   return this.http.post<ClassDsrReport>(this.dsr_api, "{\"date\" : \"" + _Date + "\"}", httpOptions).pipe(
+  //     catchError(this.handleError('Get_Dsr_Data_Server', null))
+  //   );
+  // }
 
-  Get_Dssr_Data_Server(_Date: string, _Warehouse: String): Observable<any> {
+  // Get_Dssr_Data_Server(_Date: string, _Warehouse: String): Observable<any> {
 
-    return this.http.post<ClassDssrReport>(this.dssr_api, "{\"date\" : \"" + _Date + "\",  \"warehouse\":\"" + _Warehouse + "\"}", httpOptions).pipe(
-      catchError(this.handleError('Get_Dssr_Data_Server', null))
-    );
-  }
+  //   return this.http.post<ClassDssrReport>(this.dssr_api, "{\"date\" : \"" + _Date + "\",  \"warehouse\":\"" + _Warehouse + "\"}", httpOptions).pipe(
+  //     catchError(this.handleError('Get_Dssr_Data_Server', null))
+  //   );
+  // }
 
-  Get_Dcsr_Data_Server(_Date: string, _Category: String): Observable<any> {
-    return this.http.post<ClassDcsrReport>(this.dcsr_api, "{\"date\" : \"" + _Date + "\",  \"category\":\"" + _Category + "\"}", httpOptions).pipe(
-      catchError(this.handleError('Get_Dcsr_Data_Server', null))
-    );
-  }
+  // Get_Dcsr_Data_Server(_Date: string, _Category: String): Observable<any> {
+  //   return this.http.post<ClassDcsrReport>(this.dcsr_api, "{\"date\" : \"" + _Date + "\",  \"category\":\"" + _Category + "\"}", httpOptions).pipe(
+  //     catchError(this.handleError('Get_Dcsr_Data_Server', null))
+  //   );
+  // }
 
-  Get_Dcrm_Data_Server(_Date: string): Observable<any> {
-    return this.http.post<ClassDcrmReport>(this.dcrm_api, "{\"date\" : \"" + _Date + "\"}", httpOptions).pipe(
-      catchError(this.handleError('Get_Dcrm_Data_Server', null))
-    );
-  }
+  // Get_Dcrm_Data_Server(_Date: string): Observable<any> {
+  //   return this.http.post<ClassDcrmReport>(this.dcrm_api, "{\"date\" : \"" + _Date + "\"}", httpOptions).pipe(
+  //     catchError(this.handleError('Get_Dcrm_Data_Server', null))
+  //   );
+  // }
 
-  Get_Csr_Data_Server(_Division: String): Observable<any> {
-    return this.http.post<ClassCsrReport>(this.csr_api, "{\"division\" : \"" + _Division + "\"}", httpOptions).pipe(
-      catchError(this.handleError('Get_Csr_Data_Server', null))
-    );
-  }
+  // Get_Csr_Data_Server(_Division: String): Observable<any> {
+  //   return this.http.post<ClassCsrReport>(this.csr_api, "{\"division\" : \"" + _Division + "\"}", httpOptions).pipe(
+  //     catchError(this.handleError('Get_Csr_Data_Server', null))
+  //   );
+  // }
 
 }
