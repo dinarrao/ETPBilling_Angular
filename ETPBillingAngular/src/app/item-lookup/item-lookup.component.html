@@ -92,7 +92,8 @@
           </div>
           <div class="tbl-row">
             <div class="row" [ngClass]="{'row-hover': idx === tmpIndex }" *ngFor="let data of objItem; let idx = index" (mouseenter)="tmpIndex = idx"
-              (mouseleave)="tmpIndex = 0" (dblclick)="selectData()">
+              (mouseleave)="tmpIndex = -1" [class.row-selected]="currentIndex === idx" (click)="selectRow($event, data, idx)"
+              (dblclick)="selectData($event, data)">
               <div class="filter-input-row">
                 {{data.itemNumber}}
               </div>
@@ -115,8 +116,8 @@
 
       <div class="modal-footer">
         <div class="pull-left">
-          <button type="button" class="btn btn-default" (click)="selectData()" disabled="true">Ok</button>
-          <button type="button" class="btn btn-default" disabled="true">More</button>
+          <button type="button" class="btn btn-default" [disabled]="currentIndex === -1" (click)="selectData($event, currentIndex)" disabled="true">Ok</button>
+          <button type="button" class="btn btn-default" disabled="true" >More</button>
           <button type="button" class="btn btn-default" (click)="cancel()"> Cancel </button>
           <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
         </div>

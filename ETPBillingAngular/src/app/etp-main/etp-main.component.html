@@ -148,13 +148,13 @@
                       </thead>
 
                       <tbody>
-                        <tr class="grid">
-                          <td scope="row" class="text-right">1</td>
-                          <td>044APMWWPANT...</td>
-                          <td>ALLEN SOLLY MEN PANTS...</td>
+                        <tr class="grid" *ngFor="let prod of productInfoObj; let idx = index">
+                          <td scope="row" class="text-right">{{idx}}</td>
+                          <td>{{prod.itemNumber}}</td>
+                          <td>{{prod.itemName}}</td>
                           <td></td>
                           <td class="text-right">1</td>
-                          <td class="text-right">7</td>
+                          <td class="text-right">{{prod.salesPrice}}</td>
                           <td class="text-right">0</td>
                           <td class="text-right">0</td>
                           <td class="text-right">0</td>

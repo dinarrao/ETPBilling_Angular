@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
 import { CommonService } from '../common.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-item-lookup',
@@ -22,7 +23,11 @@ export class ItemLookupComponent implements OnInit {
   prodGroup = '';
   salesPrice = '';
 
-  constructor(private commonService: CommonService) { }
+  tmpIndex = -1;
+  currentIndex = -1;
+  currentItemObj = [];
+
+  constructor(private commonService: CommonService, private sharedService: SharedService) { }
 
   ngOnInit() {
 
@@ -46,6 +51,10 @@ export class ItemLookupComponent implements OnInit {
     this.salesPrice = '';
 
     this.objItem = [];
+
+    this.tmpIndex = -1;
+    this.currentIndex = -1;
+    this.currentItemObj = [];
   }
 
   searchProduct() {
@@ -97,8 +106,23 @@ export class ItemLookupComponent implements OnInit {
     //   });
   }
 
-  selectData() {
+  selectData(event, data) {
     // Call shared service to pass product data to Billing screen
+    console.log(event.type);
+    console.log(data);
+
+    if (event.type === 'dblclick') {
+      this.sharedService.changeProductInfo(data);
+    } else if (event.type === 'click') {
+      console.log(this.currentItemObj);
+      this.sharedService.changeProductInfo(this.currentItemObj);
+    }
+  }
+
+  selectRow(event, data, index) {
+    console.log(event.type);
+    this.currentIndex = index;
+    this.currentItemObj = data;
   }
 
 }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -12,6 +13,7 @@ import { CustomerLookupComponent } from './customer-lookup/customer-lookup.compo
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { CommonService } from './common.service';
+import { SharedService } from './shared.service';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,15 @@ import { CommonService } from './common.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     HttpModule,
     ModalModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [CommonService],
+  providers: [
+    CommonService,
+    SharedService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

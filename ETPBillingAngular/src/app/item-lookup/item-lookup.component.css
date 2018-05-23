@@ -95,3 +95,11 @@
 .row-hover {
     background-color: #B9F6CA !important;
 }
+
+.row-selected {
+    background-color: #B9F6CA !important;
+}
+
+.disabled {
+    
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input, ViewContainerRef } from '@angular/core';
 import { ItemLookupComponent } from '../item-lookup/item-lookup.component';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-etp-main',
@@ -15,9 +16,17 @@ export class EtpMainComponent implements OnInit {
 
   @ViewChild('childModal') childModal: ItemLookupComponent;
 
-  constructor(private viewContainerRef: ViewContainerRef) { }
+  productInfoObj = [];
+
+  constructor(private viewContainerRef: ViewContainerRef, private sharedService: SharedService) { }
 
   ngOnInit() {
+    this.sharedService.productInfo.subscribe(res => {
+      console.log(res);
+      if (res !== undefined) {
+        this.productInfoObj.push(res);
+      }
+    });
   }
 
   openModel(event) {

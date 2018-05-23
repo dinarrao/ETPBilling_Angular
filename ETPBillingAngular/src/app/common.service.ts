@@ -11,7 +11,7 @@ import 'rxjs/add/operator/catch';
 export class CommonService {
 
   url_login = 'http://110.173.181.78:6040/ETPStoreServiceV5.5_REST/rest/Service/VALIDATE_LOGIN';
-  
+
   headers;
   httpOptions;
 
@@ -19,9 +19,12 @@ export class CommonService {
     let obj;
     // this.getJSON().subscribe(data => obj = data, error => console.log(error));
 
-    this.headers = new Headers({ 'Content-Type': 'application/json' });
-    this.httpOptions = new RequestOptions({ headers: this.headers });
+    this.headers = new Headers({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
 
+    this.httpOptions = new RequestOptions({ headers: this.headers });
   }
 
   public getJSON(json_productInfo): Observable<any> {
