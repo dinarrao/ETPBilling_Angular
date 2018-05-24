@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     this._DataService.Authenticate_User_Server(_UserName, _Password).subscribe(data => {
       this._Data = data;
       if (this._Data == true)
-        this.router.navigateByUrl('dashboard');
+        this.router.navigateByUrl('index');
       else
         alert('Invalid User Name or Password !!!');
     })

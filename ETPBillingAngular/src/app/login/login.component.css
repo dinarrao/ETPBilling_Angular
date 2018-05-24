@@ -7,9 +7,9 @@
     right: 0;
     bottom: 0;
     overflow: auto;
-
 }
-.login-panel
+
+.login-panel 
 {
     background-color: #e2e4f0;
     position: absolute;
@@ -33,4 +33,41 @@
 {
     width: 50%;
     margin: 0 auto;
+    
 }
+.btn-login {
+    color: #fff  !important;
+    background-color: #464b8b!important;
+    border: 0 #464b8b!important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    -webkit-appearance: none!important;
+}
+
+.input-group
+{
+    display: flex !important;
+}
+
+#txtusername
+{
+    background-color:#c5cae9;
+    color:#000000 !important;
+    height: 36px !important;
+    margin-top:5px;
+}
+#txtpassword
+{
+    background-color:#c5cae9;
+    color:#000000 !important;
+    height: 36px !important;
+    margin-top:6px;
+}
+
+
+.starail-Form-input--error, .input-validation-error, .form-control.starail-Form-error {
+    background-color: #ffedee;
+    border: 0.5px solid !important;
+    border-color: #e6462e !important;
+}
+

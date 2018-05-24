@@ -8,6 +8,6 @@ import { LoginComponent } from './login.component';
     CommonModule,
     LoginRoutingModule
   ],
-  declarations: [LoginComponent]
+  declarations: []
 })
 export class LoginModule { }

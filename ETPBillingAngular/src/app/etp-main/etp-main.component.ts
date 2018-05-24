@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input, ViewContainerRef } from '@angular/
 import { ItemLookupComponent } from '../item-lookup/item-lookup.component';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { SharedService } from '../shared.service';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-etp-main',
@@ -17,16 +18,43 @@ export class EtpMainComponent implements OnInit {
   @ViewChild('childModal') childModal: ItemLookupComponent;
 
   productInfoObj = [];
+  public NoOfRows: Number;
+  public TotalQty: Number;
+  public GrossAmount: Number;
+  public Discount: Number;
+
+  idx = -1;
 
   constructor(private viewContainerRef: ViewContainerRef, private sharedService: SharedService) { }
 
   ngOnInit() {
+    console.log(this.productInfoObj);
+
     this.sharedService.productInfo.subscribe(res => {
       console.log(res);
+
       if (res !== undefined) {
         this.productInfoObj.push(res);
+        this.NoOfRows = this.productInfoObj.length;
+        this.CalculateFigures();
       }
+
     });
+  }
+
+  CalculateFigures() {
+    this.NoOfRows = this.productInfoObj.length;
+    this.TotalQty = this.productInfoObj.length;
+    this.GrossAmount = 0;
+    this.Discount = 0;
+
+    for (const entry of this.productInfoObj) {
+      if (entry.salesPrice !== undefined) {
+
+        this.GrossAmount += entry.salesPrice;
+      }
+
+    }
   }
 
   openModel(event) {
