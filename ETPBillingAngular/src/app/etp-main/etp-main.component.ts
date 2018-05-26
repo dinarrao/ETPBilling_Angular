@@ -108,6 +108,7 @@ export class EtpMainComponent implements OnInit {
   }
   deleteSelectedObj(){
     this.productInfoObj.splice(this.currentIndex,1);
+    this.CalculateFigures();
   }
   // openModel(event) {
   //   // this.myModal.nativeElement.className = 'modal fade show';
