@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Input, ViewContainerRef } from '@angular/core';
 import { ItemLookupComponent } from '../item-lookup/item-lookup.component';
+import { CustomerLookupComponent } from '../customer-lookup/customer-lookup.component';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { SharedService } from '../shared.service';
 import { debug } from 'util';
@@ -11,11 +12,10 @@ import { debug } from 'util';
 })
 export class EtpMainComponent implements OnInit {
 
-  @ViewChild('myModal') myModal;
-  // @ViewChild('childModal') public childModal: ModalDirective;
   @Input() title?: string;
 
   @ViewChild('childModal') childModal: ItemLookupComponent;
+  @ViewChild('childModalCust') childModalCust: CustomerLookupComponent;
 
   productInfoObj = [];
   public NoOfRows: Number;
@@ -57,13 +57,13 @@ export class EtpMainComponent implements OnInit {
     }
   }
 
-  openModel(event) {
-    // this.myModal.nativeElement.className = 'modal fade show';
-    document.getElementById('openModalButton').click();
-  }
-  closeModel() {
-    this.myModal.nativeElement.className = 'modal hide';
-  }
+  // openModel(event) {
+  //   // this.myModal.nativeElement.className = 'modal fade show';
+  //   document.getElementById('openModalButton').click();
+  // }
+  // closeModel() {
+  //   this.myModal.nativeElement.className = 'modal hide';
+  // }
 
   // show() {
   //   this.childModal.show();

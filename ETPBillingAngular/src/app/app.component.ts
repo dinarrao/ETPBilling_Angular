@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'app';
 
   constructor() {
-    alert('Hiiii');
+    // alert('Hiiii');
   }
 
   sidebarCollapseClick(event): void {

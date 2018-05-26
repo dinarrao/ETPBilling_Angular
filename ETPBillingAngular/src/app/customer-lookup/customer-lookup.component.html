@@ -22,7 +22,7 @@
   </div>
 </div> -->
 
-<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div bsModal #childModalCust="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm ">
     <div class="modal-content">
       <div class="modal-header">
@@ -36,73 +36,73 @@
         </ng-content> -->
         <div class="filter-title">
           <div class="filter-input-text">
-            Item Number
+            Customer Number
           </div>
           <div class="filter-input-text">
-            Name
+            Customer Name
           </div>
           <div class="filter-input-text">
-            Item Type
+            Mobile No.
           </div>
           <div class="filter-input-text">
-            Product Group
+            Country
           </div>
           <div class="filter-input-text">
-            Sales Price
+            Warehouse
           </div>
         </div>
         <div class="filter-input">
           <div class="filter-input-text">
-            <input type="text" id="flt_itemNumber" class="input-box" name="flt_itemNumber">
+            <input type="text" id="flt_customerNumber" class="input-box" name="flt_customerNumber">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_name" class="input-box" name="flt_name">
+            <input type="text" id="flt_customerName" class="input-box" name="flt_customerName">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_itemType" class="input-box" name="flt_itemType">
+            <input type="text" id="flt_mobileNo" class="input-box" name="flt_mobileNo">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_prodGroup" class="input-box" name="flt_prodGroup">
+            <input type="text" id="flt_country" class="input-box" name="flt_country">
           </div>
           <div class="filter-input-text">
-            <input type="text" id="flt_salesPrice" class="input-box" name="flt_salesPrice">
+            <input type="text" id="flt_warehouse" class="input-box" name="flt_warehouse">
           </div>
         </div>
 
         <div class="tbl-item">
           <div class="tbl-header">
             <div class="filter-input-text">
-              Item Number
+              Customer Number
             </div>
             <div class="filter-input-text">
-              Name
+              Customer Name
             </div>
             <div class="filter-input-text">
-              Item Type
+              Mobile No.
             </div>
             <div class="filter-input-text">
-              Product Group
+              Country
             </div>
             <div class="filter-input-text">
-              Sales Price
+              Warehouse
             </div>
           </div>
           <div class="tbl-row">
             <div class="row" *ngFor="let data of objItem">
               <div class="filter-input-row">
-                {{data.productInfo[0].itemNumber}}
+                {{data.customerInfo[0].customerNumber}}
               </div>
               <div class="filter-input-row">
-                {{data.productInfo[0].itemName}}
+                {{data.customerInfo[0].customerName}}
               </div>
               <div class="filter-input-row">
-                {{data.productInfo[0].itemDescription}}
+                {{data.customerInfo[0].mobileNo}}
               </div>
               <div class="filter-input-row"> 
-                {{data.productInfo[0].productGroup}}
+                {{data.customerInfo[0].country}}
               </div>
               <div class="filter-input-row">
-                {{data.productInfo[0].salesPrice}}
+                {{data.customerInfo[0].warehouse}}
               </div>
             </div>
           </div>
