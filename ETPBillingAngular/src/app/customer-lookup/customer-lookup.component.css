@@ -58,3 +58,27 @@
     margin-left: 20px;
     /* margin-right: 10px; */
 }
+
+.form-control-feedback-btn {
+    background: #5C6BC0 !important;
+    color: #fff;
+    padding-top: 7px !important;
+    font-size: 15px !important;
+    width: 30px !important;
+    height: 30px !important;
+    position: absolute;
+    top: 33px;
+    right: 55px;
+    z-index: 2;
+    display: block;
+    text-align: center; 
+    cursor: pointer;   
+}
+
+.row-hover {
+    background-color: #B9F6CA !important;
+}
+
+.row-selected {
+    background-color: #B9F6CA !important;
+}

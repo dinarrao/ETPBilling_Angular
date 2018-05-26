@@ -37,4 +37,8 @@ export class CustomerLookupComponent implements OnInit {
     this.childModalCust.hide();
   }
 
+  searchCustomer() {
+    
+  }
+
 }
