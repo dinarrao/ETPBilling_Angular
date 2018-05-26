@@ -26,3 +26,9 @@
     display: block;
     text-align: center;    
 }
+
+.h-300 {
+    height: 296px !important;
+    overflow-y: scroll !important;
+    margin-bottom: 11px;
+}
