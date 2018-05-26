@@ -13,8 +13,8 @@ export class AppComponent {
     // alert('Hiiii');
   }
 
-  sidebarCollapseClick(event): void {
-    event.preventDefault();
+  sidebarCollapseClick(): void {
+    //event.preventDefault();
     $('#sidebar').toggleClass('active');
     $('#content').addClass('active');
    

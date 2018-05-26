@@ -91,7 +91,6 @@ export class EtpMainComponent implements OnInit {
     // }
   }
 
-<<<<<<< HEAD
   openModel(event) {
     // this.myModal.nativeElement.className = 'modal fade show';
     document.getElementById('openModalButton').click();
@@ -110,7 +109,6 @@ export class EtpMainComponent implements OnInit {
   deleteSelectedObj(){
     this.productInfoObj.splice(this.currentIndex,1);
   }
-=======
   // openModel(event) {
   //   // this.myModal.nativeElement.className = 'modal fade show';
   //   document.getElementById('openModalButton').click();
@@ -118,7 +116,6 @@ export class EtpMainComponent implements OnInit {
   // closeModel() {
   //   this.myModal.nativeElement.className = 'modal hide';
   // }
->>>>>>> 58694bd8ce70246c6fbfdde5ab940fdbc8e69806
 
   // show() {
   //   this.childModal.show();
