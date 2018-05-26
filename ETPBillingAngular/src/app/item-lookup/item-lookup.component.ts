@@ -36,6 +36,7 @@ export class ItemLookupComponent implements OnInit {
   show() {
     console.log('In show');
     console.log(this.childModal);
+    this.cancel();
     this.childModal.show();
   }
 
@@ -117,6 +118,8 @@ export class ItemLookupComponent implements OnInit {
       console.log(this.currentItemObj);
       this.sharedService.changeProductInfo(this.currentItemObj);
     }
+
+    this.hide();
   }
 
   selectRow(event, data, index) {
