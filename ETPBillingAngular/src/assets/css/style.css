@@ -668,7 +668,7 @@ label{
     border-top:0 !important;
     padding-right: 1px !important;
 }
-..display-row{
+.display-row{
     background: #fff;
     padding-bottom: 10px;
    
@@ -705,12 +705,19 @@ table.dataTable.display tbody tr.odd {
   outline: 1px solid #ccc;
 }*/
 
-.s1>tbody>tr:nth-of-type(odd) {
+/*.s1>tbody>tr:nth-of-type(odd) {
     background-color: #EEEEEE !important;
 }
 
 .s1>tbody>tr:nth-of-type(even){
     background-color: #E0E0E0 !important;
+}*/
+.s1>tbody>tr:nth-of-type(odd) {
+    background-color: #EEEEEE;
+}
+
+.s1>tbody>tr:nth-of-type(even){
+    background-color: #E0E0E0;
 }
 .s1>tbody>tr:hover
 {

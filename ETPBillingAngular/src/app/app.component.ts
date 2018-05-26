@@ -9,10 +9,14 @@ import * as $ from 'jquery';
 export class AppComponent {
   title = 'app';
 
-  constructor() { }
+  constructor() {
+    // alert('Hiiii');
+  }
 
-  sidebarCollapseClick(): void {
+  sidebarCollapseClick(event): void {
+    event.preventDefault();
     $('#sidebar').toggleClass('active');
     $('#content').addClass('active');
+   
   }
 }

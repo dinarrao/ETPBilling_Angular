@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Input, ViewContainerRef } from '@angular/core';
 import { ItemLookupComponent } from '../item-lookup/item-lookup.component';
+import { CustomerLookupComponent } from '../customer-lookup/customer-lookup.component';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { SharedService } from '../shared.service';
 import { debug } from 'util';
@@ -11,18 +12,18 @@ import { debug } from 'util';
 })
 export class EtpMainComponent implements OnInit {
 
-  @ViewChild('myModal') myModal;
-  // @ViewChild('childModal') public childModal: ModalDirective;
   @Input() title?: string;
 
   @ViewChild('childModal') childModal: ItemLookupComponent;
+  @ViewChild('childModalCust') childModalCust: CustomerLookupComponent;
 
   productInfoObj = [];
   public NoOfRows: Number;
   public TotalQty: Number;
-  public GrossAmount: Number;
+  public GrossAmount: number;
   public Discount: Number;
-
+  currentIndex;
+  currentItemObj;
   idx = -1;
 
   constructor(private viewContainerRef: ViewContainerRef, private sharedService: SharedService) { }
@@ -31,10 +32,32 @@ export class EtpMainComponent implements OnInit {
     console.log(this.productInfoObj);
 
     this.sharedService.productInfo.subscribe(res => {
+      //alert('Hello')
+      console.log('whats res')
       console.log(res);
-
-      if (res !== undefined) {
-        this.productInfoObj.push(res);
+      
+      if (res !== undefined && res.length !== 0) {
+        console.log('Check this Aslo')
+        console.log(this.productInfoObj);
+        // this.productInfoObj.push(res);
+        
+          let matchFound = false;
+          this.productInfoObj.forEach(element1 => {
+            
+            if(res.itemNumber === element1.itemNumber){
+              matchFound = true;
+              element1.quantity+=1;
+            }
+          });
+          if(!matchFound){
+      //      alert("Hello")
+            console.log(res)
+            res['quantity'] = 1;
+            this.productInfoObj.push(res);
+          }
+        
+        console.log('Check this Aslo')
+        console.log(this.productInfoObj);
         this.NoOfRows = this.productInfoObj.length;
         this.CalculateFigures();
       }
@@ -44,19 +67,31 @@ export class EtpMainComponent implements OnInit {
 
   CalculateFigures() {
     this.NoOfRows = this.productInfoObj.length;
-    this.TotalQty = this.productInfoObj.length;
+    this.TotalQty = 0;
+    this.productInfoObj.forEach(element => {
+    this.TotalQty = this.TotalQty + element.quantity;   
+  });
+  
     this.GrossAmount = 0;
+    let grossAm = 0
+    this.productInfoObj.forEach(element => {
+      let val = element.quantity * element.salesPrice;
+     // alert(val)
+    this.GrossAmount = this.GrossAmount + val;
+    //alert(this.GrossAmount);
+  });
     this.Discount = 0;
 
-    for (const entry of this.productInfoObj) {
-      if (entry.salesPrice !== undefined) {
+    // for (const entry of this.productInfoObj) {
+    //   if (entry.salesPrice !== undefined) {
 
-        this.GrossAmount += entry.salesPrice;
-      }
+    //     this.GrossAmount += entry.salesPrice;
+    //   }
 
-    }
+    // }
   }
 
+<<<<<<< HEAD
   openModel(event) {
     // this.myModal.nativeElement.className = 'modal fade show';
     document.getElementById('openModalButton').click();
@@ -64,6 +99,26 @@ export class EtpMainComponent implements OnInit {
   closeModel() {
     this.myModal.nativeElement.className = 'modal hide';
   }
+  selectRow(event, data, index) {
+    console.log(event.type);
+    console.log(data);
+    console.log(index)
+    
+    this.currentIndex = index;
+    this.currentItemObj = data;
+  }
+  deleteSelectedObj(){
+    this.productInfoObj.splice(this.currentIndex,1);
+  }
+=======
+  // openModel(event) {
+  //   // this.myModal.nativeElement.className = 'modal fade show';
+  //   document.getElementById('openModalButton').click();
+  // }
+  // closeModel() {
+  //   this.myModal.nativeElement.className = 'modal hide';
+  // }
+>>>>>>> 58694bd8ce70246c6fbfdde5ab940fdbc8e69806
 
   // show() {
   //   this.childModal.show();

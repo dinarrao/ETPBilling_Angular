@@ -73,7 +73,12 @@
 
                   <div class="col-md-4 col-sm-4">
                     <input type="text" id="" name="" class="form-control col-md-7 col-xs-12" placeholder="WALK-IN">
-                    <span class="fa fa-search form-control-feedback right cursor-pointer" aria-hidden="true"></span>
+                    <!-- <span class="fa fa-search form-control-feedback right cursor-pointer" aria-hidden="true"></span> -->
+
+                    <div class="fa fa-search form-control-feedback-btn right cursor-pointer" aria-hidden="true" (click)="childModalCust.show()"></div>
+                    
+                    <app-customer-lookup #childModalCust [title]="'Quick Customer LookUp'">                      
+                    </app-customer-lookup>
                   </div>
 
 
@@ -106,13 +111,8 @@
                   <div class="col-md-4 col-sm-4 col-xs-6">
                     <input type="text" id="" name="item_no" class="form-control col-md-7 col-xs-12" placeholder="044APMWWPANT">
                     <div class="fa fa-search form-control-feedback-btn right cursor-pointer" aria-hidden="true" (click)="childModal.show()"></div>
-                    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
-                    <!-- <app-item-lookup #myModal></app-item-lookup> -->
-
-                    <!-- <button type="button" class="btn btn-primary" (click)="childModal.show()">Open modal</button> -->
-                    <app-item-lookup #childModal [title]="'Quick Item LookUp'">
-                      <!-- <div class="modal-body">
-                        Hi heloo </div> -->
+                    
+                    <app-item-lookup #childModal [title]="'Quick Item LookUp'">                      
                     </app-item-lookup>
 
                   </div>
@@ -137,7 +137,7 @@
                           <th>LN.</th>
                           <th>Qty.</th>
                           <th>Sales Price</th>
-                          <th>Dlao.</th>
+                          <th>Disc.</th>
                           <th>Chrg.</th>
                           <th>Tax</th>
                           <th>Amount</th>
@@ -148,17 +148,17 @@
                       </thead>
 
                       <tbody>
-                        <tr class="grid" *ngFor="let prod of productInfoObj; let idx = index">
-                          <td scope="row" class="text-right">{{idx}}</td>
+                        <tr class="grid" *ngFor="let prod of productInfoObj; let idx = index" [ngClass]="{'row-selected':currentIndex === idx}" (click)="selectRow($event, prod, idx)">
+                          <td scope="row" class="text-right">{{idx+1}}</td>
                           <td>{{prod.itemNumber}}</td>
                           <td>{{prod.itemName}}</td>
                           <td></td>
-                          <td class="text-right">1</td>
+                          <td class="text-right">{{prod.quantity}}</td>
                           <td class="text-right">{{prod.salesPrice}}</td>
                           <td class="text-right">0</td>
                           <td class="text-right">0</td>
                           <td class="text-right">0</td>
-                          <td class="text-right">{{prod.salesPrice}}</td>
+                          <td class="text-right">{{prod.salesPrice * prod.quantity}}</td>
                           <td>01-SUZAN</td>
                           <td>APP01</td>
                           <td>PCS</td>
@@ -170,7 +170,7 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4 height4">
-                  <i class="fa fa-trash-o"></i>
+                  <i class="fa fa-trash-o" (click)="deleteSelectedObj()"></i>
 
                   <span class="mrl-35">No. Of Items - {{NoOfRows}}</span>
 
@@ -243,7 +243,7 @@
                     <tbody>
                       <tr>
                         <th scope="row">Received</th>
-                        <th class="text-right fs-m">500.00</th>
+                        <th class="text-right fs-m">00.00</th>
 
                       </tr>
                       <tr>
@@ -256,13 +256,13 @@
                     <tfoot>
                       <tr>
                         <th>Charge Due</th>
-                        <th class="text-right fs-m">47.75</th>
+                        <th class="text-right fs-m">00.00</th>
                       </tr>
                     </tfoot>
                   </table>
                   <!--table end-->
 
-                  <button class="save-btn" style="font-weight: normal">SAVE &amp; PRINT</button>
+                  <button class="save-btn" style="font-weight: normal">END</button>
 
                 </div>
               </div>

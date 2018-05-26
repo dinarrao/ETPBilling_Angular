@@ -11,17 +11,19 @@ export class CustomerLookupComponent implements OnInit {
 
   @ViewChild('childModalCust') public childModalCust: ModalDirective;
   @Input() title?: string;
-  objItem;
-  json_customerInfo = './assets/data/getProductInfo.json';  // To be replaced by getCustomerInfo.json
+  objItem = [];
+  json_customerInfo = './assets/data/getCustomerInfo.json';  // To be replaced by getCustomerInfo.json
 
   constructor(private commonService: CommonService) { }
 
   ngOnInit() {
     this.commonService.getJSON(this.json_customerInfo)
       .subscribe(data => {
-        console.log(data);
-        console.log(data[0].productInfo[0]);
-        this.objItem = data;
+        console.log(data[0]);
+        if (data[0].customerInfo !== undefined) {
+          console.log(data[0].customerInfo);
+          this.objItem = data;
+        }
       });
 
   }
