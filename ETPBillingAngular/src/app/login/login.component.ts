@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    $("#sidebar").css("visibility","hidden");
+    $(".wrapper").css("background-color","#464b8b");
   }
 
 
@@ -52,7 +54,11 @@ export class LoginComponent implements OnInit {
     this._DataService.Authenticate_User_Server(_UserName, _Password).subscribe(data => {
       this._Data = data;
       if (this._Data == true)
+      {
         this.router.navigateByUrl('index');
+        $("#sidebar").css("visibility","visible");
+        $(".wrapper").css("background-color","#E0E0E0");
+      }
       else
         alert('Invalid User Name or Password !!!');
     })
