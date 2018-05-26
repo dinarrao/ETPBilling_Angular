@@ -21,8 +21,14 @@ export class CommonService {
 
     this.headers = new Headers({
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
     });
+
+    // this.headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    // this.headers.append('Accept', 'application/json');
+    // this.headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+    // this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
+    // this.headers.append('Access-Control-Allow-Headers',
+    //   'X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
 
     this.httpOptions = new RequestOptions({ headers: this.headers });
   }
@@ -35,6 +41,8 @@ export class CommonService {
   }
 
   public postURL(url: string, body): Observable<any> {
+    console.log(url);
+    console.log(body);
     return this.http.post(url, body, this.httpOptions)
       .map(this.extractData)
       .catch(this.handleErrorObservable);

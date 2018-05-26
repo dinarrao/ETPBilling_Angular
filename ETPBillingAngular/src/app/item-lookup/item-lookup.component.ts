@@ -60,15 +60,15 @@ export class ItemLookupComponent implements OnInit {
   searchProduct() {
     // console.log(this.itemNumber);
 
-    //// To be used in DEV environment with JSON file. Comment when using real API
-    this.commonService.getJSON(this.json_productInfo)
-      .subscribe(data => {
-        console.log('Response data from JSON');
-        console.log(data);
-        console.log(data[0].productInfo);
-        this.objItem = data[0].productInfo;
-      });
-    //// end
+    // //// To be used in DEV environment with JSON file. Comment when using real API
+    // this.commonService.getJSON(this.json_productInfo)
+    //   .subscribe(data => {
+    //     console.log('Response data from JSON');
+    //     console.log(data);
+    //     console.log(data[0].productInfo);
+    //     this.objItem = data[0].productInfo;
+    //   });
+    // //// end
 
     let body = {
       "companyInfo": {
@@ -96,14 +96,14 @@ export class ItemLookupComponent implements OnInit {
     console.log('Request for GET_PRODUCT_INFO service');
     console.log(body);
 
-    // // To be used with real API
+    // To be used with real API
 
-    // this.commonService.postURL(this.url_productInfo, body)
-    //   .subscribe(data => {
-    //     console.log('Response from GET_PRODUCT_INFO service');
-    //     console.log(data);
-    //     this.objItem = data.productInfo;
-    //   });
+    this.commonService.postURL(this.url_productInfo, body)
+      .subscribe(data => {
+        console.log('Response from GET_PRODUCT_INFO service');
+        console.log(data);
+        this.objItem = data.productInfo;
+      });
   }
 
   selectData(event, data) {
