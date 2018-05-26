@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ViewContainerRef } from '@angular/core';
 import * as $ from 'jquery';
+import { ItemLookupComponent } from '../app/item-lookup/item-lookup.component';
+import { CustomerLookupComponent } from '../app/customer-lookup/customer-lookup.component';
+import { ModalDirective, ModalModule } from 'ngx-bootstrap';
+import { SharedService } from '../app/shared.service';
+import { debug } from 'util';
+
 
 @Component({
   selector: 'app-root',
@@ -8,6 +14,9 @@ import * as $ from 'jquery';
 })
 export class AppComponent {
   title = 'app';
+
+  @ViewChild('childModal') childModal: ItemLookupComponent;
+  @ViewChild('childModalCust') childModalCust: CustomerLookupComponent;
 
   constructor() {
     // alert('Hiiii');

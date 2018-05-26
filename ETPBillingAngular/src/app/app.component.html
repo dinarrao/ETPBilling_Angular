@@ -54,18 +54,27 @@
 
       </li>
       <li class="row">
-        <div class="col-xs-6 left">
-          <a href="#">
+        <div class="col-xs-6 left" (click)="childModalCust.show()">
+          <a >
             <img src="assets/image/icon/cust-lookup.png">
             <h6>Cust Lookup</h6>
 
           </a>
+          <app-customer-lookup #childModalCust [title]="'Quick Customer LookUp'">                      
+          </app-customer-lookup>
+
         </div>
-        <div class="col-xs-6 right">
-          <a href="#">
+        <div class="col-xs-6 right" (click)="childModal.show()">
+          <a>
             <img src="assets/image/icon/product-lookup.png">
             <h6>Product Lookup</h6>
           </a>
+
+          
+        
+          <app-item-lookup #childModal [title]="'Quick Item LookUp'">                      
+          </app-item-lookup>
+
         </div>
 
       </li>

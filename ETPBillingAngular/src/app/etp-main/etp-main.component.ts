@@ -96,7 +96,7 @@ export class EtpMainComponent implements OnInit {
     document.getElementById('openModalButton').click();
   }
   closeModel() {
-    this.myModal.nativeElement.className = 'modal hide';
+    //this.myModal.nativeElement.className = 'modal hide';
   }
   selectRow(event, data, index) {
     console.log(event.type);
