@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     $("#sidebar").css("visibility","hidden");
     $(".wrapper").css("background-color","#464b8b");
+    $("#footerbar").css("visibility","hidden");
+    // $(".col-md-6 col-sm-6 col-xs-6  ").css("background-color","#E0E0E0");
+    // $(".col-md-6 col-sm-6 col-xs-6").css("background-color","#E0E0E0");
   }
 
 
@@ -58,6 +61,8 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('index');
         $("#sidebar").css("visibility","visible");
         $(".wrapper").css("background-color","#E0E0E0");
+        $("#footerbar").css("visibility","visible");
+       // $(".container-fluid").css("background-color","#464b8b");
       }
       else
         alert('Invalid User Name or Password !!!');
