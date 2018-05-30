@@ -1,0 +1,91 @@
+
+
+<div bsModal #childModalCustCreate="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title pull-left">{{title}}</div>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <ng-content select=".modal-body">
+          </ng-content> -->
+          <div class="container">
+              <form >
+                <div class="row">
+                  <div class="col-25">
+                    <label for="cname">Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="txtname" name="cname" placeholder="Customer Name">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="email">Email</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="txtemail" name="cemail" placeholder="Email">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="isocode">IOS Code</label>
+                  </div>
+                  <div class="col-75">
+                    <select id="isocode" name="isocode">
+                      <option value="australia">Australia</option>
+                      <option value="canada">Canada</option>
+                      <option value="usa">USA</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="mobileno">Mobile No.</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="txtmobileno" name="mobileno" placeholder="Mobile No" >
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                      <label for="state">State</label>
+                    </div>
+                    <div class="col-75">
+                      <select id="state" name="state">
+                        <option value="australia">Maharastra</option>
+                        <option value="canada">UP</option>
+                        <option value="usa">MP</option>
+                      </select>
+                    </div>
+                  </div>
+                <div class="row">
+                    <div class="col-25">
+                      <label for="address">Address</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="txtaddress" name="address" placeholder="Address" >
+                    </div>
+                  </div>
+              </form>
+            </div>
+      </div>
+     
+       
+
+
+
+
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button type="button" class="btn btn-default" (click)="authencateMe($event)" >Save</button>
+          <button type="button" class="btn btn-default" (click)="hide()"> Cancel </button>
+          <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
