@@ -1,0 +1,105 @@
+
+
+<div bsModal #childModalAccelerator="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title pull-left">{{title}}</div>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <ng-content select=".modal-body">
+          </ng-content> -->
+          <div class="container">
+              <form >
+                
+                  <div class="row">
+                      <div class="tbl-item">
+                          <div class="tbl-header">
+                            <div class="filter-input-text">
+                              Business Rule Number
+                            </div>
+                            <div class="filter-input-text">
+                                Business Rule Name
+                            </div>
+                            <div class="filter-input-text">
+                              Discount Amt.
+                            </div>
+                            <div class="filter-input-text">
+                                Discount %
+                            </div>
+                            <div class="filter-input-text">
+                              Reference
+                            </div>
+                            <div class="filter-input-text">
+                                Comments
+                              </div>
+                          </div>
+                          <div class="tbl-row">
+                            <div class="row" *ngFor="let data of objItem">
+                              <div class="filter-input-row">
+                                
+                              </div>
+                              <div class="filter-input-row">
+
+                              </div>
+                              <div class="filter-input-row">
+                               
+                              </div>
+                              <div class="filter-input-row"> 
+                               
+                              </div>
+                              <div class="filter-input-row">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="cname">Reference</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="txreference" name="cname" placeholder="Reference">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="comments">Comments</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="txtcomments" name="comments" placeholder="Comments">
+                  </div>
+                </div>
+               
+                <div class="row">
+                  <div class="col-25">
+                    <label for="mobileno">value</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="txtvalue" name="value" placeholder="Value" >
+                  </div>
+                  <div class="pull-left">
+                    <button type="button" class="btn btn-default" (click)="authencateMe($event)" >Save</button>
+                    <button type="button" class="btn btn-default" (click)="hide()"> Cancel </button>
+                    <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
+                  </div>
+                </div>
+               
+              </form>
+            </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button type="button" class="btn btn-default" (click)="authencateMe($event)" >Save</button>
+          <button type="button" class="btn btn-default" (click)="hide()"> Cancel </button>
+          <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
