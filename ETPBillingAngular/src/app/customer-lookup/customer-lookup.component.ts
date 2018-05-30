@@ -27,6 +27,7 @@ export class CustomerLookupComponent implements OnInit {
       });
 
   }
+ 
 
   show() {
     console.log('In show');
