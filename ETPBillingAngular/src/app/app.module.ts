@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { EtpMainComponent } from './etp-main/etp-main.component';
 import { ItemLookupComponent } from './item-lookup/item-lookup.component';
 import { CustomerLookupComponent } from './customer-lookup/customer-lookup.component';
+import { CustomerCreationComponent } from './customer-creation/customer-creation.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { CommonService } from './common.service';
@@ -23,7 +24,8 @@ import { ClassUtils } from './ClassUtils';
     LoginComponent,
     EtpMainComponent,
     ItemLookupComponent,
-    CustomerLookupComponent
+    CustomerLookupComponent,
+    CustomerCreationComponent
   ],
   imports: [
     BrowserModule,

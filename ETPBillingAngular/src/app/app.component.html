@@ -79,13 +79,15 @@
 
       </li>
       <li class="row">
-        <div class="col-xs-6 left">
+        <div class="col-xs-6 left" (click)="childModalCustCreate.show()">
 
           <a >
             <img src="assets/image/icon/cust-creation.png">
             <h6>Cust Creation</h6>
 
           </a>
+          <app-customer-creation #childModalCustCreate [title]="'Quick Customer Creation'">                      
+          </app-customer-creation>
         </div>
         <div class="col-xs-6 right">
           <a >
