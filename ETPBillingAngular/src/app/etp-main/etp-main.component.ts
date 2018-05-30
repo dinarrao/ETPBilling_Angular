@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input, ViewContainerRef } from '@angular/core';
 import { ItemLookupComponent } from '../item-lookup/item-lookup.component';
 import { CustomerLookupComponent } from '../customer-lookup/customer-lookup.component';
+import { AcceleratorComponent } from '../accelerator/accelerator.component';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { SharedService } from '../shared.service';
 import { debug } from 'util';
@@ -16,6 +17,7 @@ export class EtpMainComponent implements OnInit {
   @ViewChild('editQtyModal') editQtyModal: HTMLElement;
   @ViewChild('childModal') childModal: ItemLookupComponent;
   @ViewChild('childModalCust') childModalCust: CustomerLookupComponent;
+  @ViewChild('childModalAccelerator') childModalAccelerator: AcceleratorComponent;
 
   productInfoObj = [];
   public NoOfRows: Number;
