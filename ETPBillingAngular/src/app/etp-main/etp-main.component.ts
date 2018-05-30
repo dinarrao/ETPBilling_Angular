@@ -13,7 +13,7 @@ import { debug } from 'util';
 export class EtpMainComponent implements OnInit {
 
   @Input() title?: string;
-
+  @ViewChild('editQtyModal') editQtyModal: HTMLElement;
   @ViewChild('childModal') childModal: ItemLookupComponent;
   @ViewChild('childModalCust') childModalCust: CustomerLookupComponent;
 
@@ -22,6 +22,7 @@ export class EtpMainComponent implements OnInit {
   public TotalQty: Number;
   public GrossAmount: number;
   public Discount: Number;
+  public editQtyNum;
   currentIndex;
   currentItemObj;
   idx = -1;
@@ -52,6 +53,7 @@ export class EtpMainComponent implements OnInit {
           if(!matchFound){
       //      alert("Hello")
             console.log(res)
+            res['isQtyEditable'] = false;
             res['quantity'] = 1;
             this.productInfoObj.push(res);
           }
@@ -109,6 +111,26 @@ export class EtpMainComponent implements OnInit {
   deleteSelectedObj(){
     this.productInfoObj.splice(this.currentIndex,1);
     this.CalculateFigures();
+  }
+  editQty(product){
+    this.editQtyNum = product.quantity;
+    this.productInfoObj.forEach(element => {
+      if(element.itemNumber == product.itemNumber){
+        element['isQtyEditable'] = true;
+      }
+      else{
+        element['isQtyEditable'] = false;
+      }
+    });
+    //document.getElementById('exampleModal').className = 'modal fade show';
+  }
+  changedQty(event,product,idx){
+    let val = document.getElementById('qty'+idx);
+    this.productInfoObj.forEach(element => {
+      if(element.itemNumber == product.itemNumber){
+        element['quantity'] = this.editQtyNum;
+      }
+    });
   }
   // openModel(event) {
   //   // this.myModal.nativeElement.className = 'modal fade show';
