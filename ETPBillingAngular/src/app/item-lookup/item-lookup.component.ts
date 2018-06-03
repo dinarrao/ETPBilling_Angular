@@ -2,6 +2,8 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
 import { CommonService } from '../common.service';
 import { SharedService } from '../shared.service';
+import { itemModel } from '../Models/item.model';
+
 
 @Component({
   selector: 'app-item-lookup',
@@ -12,8 +14,8 @@ export class ItemLookupComponent implements OnInit {
 
   @ViewChild('childModal') public childModal: ModalDirective;
   @Input() title?: string;
-  objItem = [];
-
+  //objItem = [];
+  objItem: itemModel[] = [];
   url_productInfo = 'http://110.173.181.78:6040/ETPStoreServiceV5.5_REST/rest/Service/GET_PRODUCT_INFO';
   json_productInfo = './assets/data/getProductInfo.json';
 
@@ -62,49 +64,50 @@ export class ItemLookupComponent implements OnInit {
     // console.log(this.itemNumber);
 
     // //// To be used in DEV environment with JSON file. Comment when using real API
-    this.commonService.getJSON(this.json_productInfo)
-      .subscribe(data => {
-        console.log('Response data from JSON');
-        console.log(data);
-        console.log(data[0].productInfo);
-        this.objItem = data[0].productInfo;
-      });
+    // this.commonService.getJSON(this.json_productInfo)
+    //   .subscribe(data => {
+    //     console.log('Response data from JSON');
+    //     console.log(data);
+    //     console.log(data[0].productInfo);
+    //     this.objItem = data[0].productInfo;
+    //   });
     //// end
 
-    // let body = {
-    //   "companyInfo": {
-    //     "counterNumber": 1,
-    //     "companyID": "999",
-    //     "division": "888",
-    //     "warehouse": "US01"
-    //   },
-    //   "productInputInfo": {
-    //     "itemDescription": this.itemType,
-    //     "itemNumber": this.itemNumber,
-    //     "itemName": this.name,
-    //     "itemGroup": this.prodGroup,
-    //     "aliasNumber": "",
-    //     "inputParameter": ""
-    //   },
-    //   "messageInfo": {
+    let body = {
+      "companyInfo": {
+        "counterNumber": 1,
+        "companyID": "999",
+        "division": "888",
+        "warehouse": "US01"
+      },
+      "productInputInfo": {
+        "itemDescription": this.itemType,
+        "itemNumber": this.itemNumber,
+        "itemName": this.name,
+        "itemGroup": this.prodGroup,
+        "aliasNumber": "",
+        "inputParameter": ""
+      },
+      "messageInfo": {
 
-    //   },
-    //   "requestInfo": {
-    //     "requestKey": "UNpMbqpWd0wIdNuNBugWmVlUnMNvwTPobwvZcXFXZZ2WXiIdWKSRsnGVTpi0dsAB"
-    //   }
-    // };
+      },
+      "requestInfo": {
+        "requestKey": "UNpMbqpWd0wIdNuNBugWmVlUnMNvwTPobwvZcXFXZZ2WXiIdWKSRsnGVTpi0dsAB"
+      }
+    };
 
-    // console.log('Request for GET_PRODUCT_INFO service');
-    // console.log(body);
+    console.log('Request for GET_PRODUCT_INFO service');
+    console.log(body);
 
-    // // To be used with real API
+    // To be used with real API
 
-    // this.commonService.postURL(this.url_productInfo, body)
-    //   .subscribe(data => {
-    //     console.log('Response from GET_PRODUCT_INFO service');
-    //     console.log(data);
-    //     this.objItem = data.productInfo;
-    //   });
+    this.commonService.Get_item_Data_Server(this.url_productInfo, body)
+      .subscribe(data => {
+        console.log('Response from GET_PRODUCT_INFO service');
+        console.log(data);
+        this.objItem = data.productInfo;
+        console.log(this.objItem);
+      });
   }
 
   selectData(event, data) {
