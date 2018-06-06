@@ -12,6 +12,8 @@ import { ItemLookupComponent } from './item-lookup/item-lookup.component';
 import { CustomerLookupComponent } from './customer-lookup/customer-lookup.component';
 import { CustomerCreationComponent } from './customer-creation/customer-creation.component';
 import { AcceleratorComponent } from './accelerator/accelerator.component';
+import { PaymentComponent } from './payment/payment.component';
+
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { CommonService } from './common.service';
@@ -27,7 +29,8 @@ import { ClassUtils } from './ClassUtils';
     ItemLookupComponent,
     CustomerLookupComponent,
     CustomerCreationComponent,
-    AcceleratorComponent
+    AcceleratorComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

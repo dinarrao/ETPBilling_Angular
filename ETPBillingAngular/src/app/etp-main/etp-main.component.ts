@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input, ViewContainerRef } from '@angular/
 import { ItemLookupComponent } from '../item-lookup/item-lookup.component';
 import { CustomerLookupComponent } from '../customer-lookup/customer-lookup.component';
 import { AcceleratorComponent } from '../accelerator/accelerator.component';
+import { PaymentComponent } from '../payment/payment.component';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { SharedService } from '../shared.service';
 import { debug } from 'util';
@@ -18,6 +19,8 @@ export class EtpMainComponent implements OnInit {
   @ViewChild('childModal') childModal: ItemLookupComponent;
   @ViewChild('childModalCust') childModalCust: CustomerLookupComponent;
   @ViewChild('childModalAccelerator') childModalAccelerator: AcceleratorComponent;
+  @ViewChild('childModalPayment') childModalPayment: PaymentComponent;
+  
 
   productInfoObj = [];
   public NoOfRows: Number;
@@ -93,6 +96,7 @@ export class EtpMainComponent implements OnInit {
     //   }
 
     // }
+    this.sharedService.setGrossAmount(this.GrossAmount);
   }
 
   openModel(event) {

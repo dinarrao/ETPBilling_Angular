@@ -267,7 +267,9 @@
                   </table>
                   <!--table end-->
 
-                  <button class="save-btn" style="font-weight: normal">END</button>
+                  <button class="save-btn" style="font-weight: normal" (click)="childModalPayment.show()">END</button>
+                  <app-payment #childModalPayment [title]="'All Tenders'">                      
+                    </app-payment>
 
                 </div>
               </div>
