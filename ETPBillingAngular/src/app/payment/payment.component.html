@@ -1,0 +1,151 @@
+
+<div bsModal #childModalPayment="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title pull-left">{{title}}</div>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <ng-content select=".modal-body">
+        </ng-content> -->
+
+<div *ngIf="mode === 'CASH'">
+        <div class="row">
+          <div style="float:left;margin-left:45px;">Payment by Cash</div>
+          </div>
+        <div class="filter-title" style="margin-top:5px;">
+          <div class="filter-input-text">
+            Amount
+          </div>
+          
+        </div>
+        <div class="filter-input">
+          <div class="filter-input-text">
+            <input type="text" id="flt_itemNumber" [(ngModel)]="cashAmount" class="input-box" name="flt_itemNumber">
+          </div>
+          <div class="filter-input-text">
+            <button (click)="acceptCash()" style="width:150px;background-color:#babebf;border:1px solid #babebf;border-radius:3px;height:50px;">Accept</button>
+          </div>
+        </div>
+        </div>
+<div *ngIf="mode === 'CREDITCARD'">
+ <table>
+   <tbody style="">
+     <tr style="">
+       <td style="">
+         <div style="float:left;">CC Amount</div>
+         <div style="float:left;"><input type="text" id="flt_ccamount" [(ngModel)]="ccAmount" class="input-box" name="flt_ccAmount"></div>
+       </td>
+       <td style="">
+         <div style="float:left;">CC No</div>
+         <div style="float:left;"><input type="text" id="flt_ccamount" [(ngModel)]="ccNumber" class="input-box" name="flt_ccnum"></div>
+       </td>
+       <td style="">
+         <div style="float:left;">Card Type</div>
+         <div style="float:left;"><input type="text" id="flt_ccamount" [(ngModel)]="ccType" class="input-box" name="flt_ccType"></div>
+       </td>
+       <td style="">
+         <div style="float:left;">EDC</div>
+         <div style="float:left;"><input type="text" id="flt_ccamount" [(ngModel)]="ccEdc" class="input-box" name="flt_ccEdc"></div>
+       </td>
+     </tr>
+     <tr style="">
+       <td style="">
+         <div style="">Name</div>
+         <div style=""><input type="text" id="flt_ccamount" [(ngModel)]="ccName" class="input-box" name="flt_ccName"></div>
+       </td>
+       <td style="">
+         <div style="">Valid till</div>
+         <div style=""><input type="text" id="flt_ccamount" [(ngModel)]="ccValid" class="input-box" name="flt_ccValid"></div>
+       </td>
+       <td style="">
+         <div style="">Ap. No.</div>
+         <div style=""><input type="text" id="flt_ccamount" [(ngModel)]="ccApno" class="input-box" name="flt_ccApno"></div>
+       </td>
+       <td style="">
+         <button (click)="acceptCreditCard()" style="width:150px;background-color:#babebf;border:1px solid #babebf;border-radius:3px;height:50px;">Accept</button>
+       </td>
+     </tr>
+     <tr></tr>
+     </tbody>
+ </table>
+</div>
+
+        <div class="tbl-item table table-striped s1">
+          <div class="tbl-header">
+            <div class="filter-input-text">
+              Amount
+            </div>
+            <div class="filter-input-text">
+              Number
+            </div>
+            <div class="filter-input-text">
+              Payment Mode
+            </div>
+            <div class="filter-input-text">
+              Name
+            </div>
+            <div class="filter-input-text">
+              Agency
+            </div>
+            <div class="filter-input-text">
+              Currency
+            </div>
+            <div class="filter-input-text">
+              Ap. No.
+            </div>
+            <div class="filter-input-text">
+              EDC/Details
+            </div>
+          </div>
+          <div class="tbl-row">
+            <div class="row" [ngClass]="{'row-hover': idx === tmpIndex }" *ngFor="let data of paymentArr; let idx = index" (mouseenter)="tmpIndex = idx"
+              (mouseleave)="tmpIndex = -1" [class.row-selected]="currentIndex === idx">
+              <div class="filter-input-row">
+                {{data.amount}}
+              </div>
+              <div class="filter-input-row">
+                {{data.number}}
+              </div>
+              <div class="filter-input-row">
+                {{data.mode}}
+              </div>
+              <div class="filter-input-row">
+                {{data.name}}
+              </div>
+              <div class="filter-input-row">
+                {{data.agency}}
+              </div>
+              <div class="filter-input-row">
+                {{data.expiry}}
+              </div>
+              <div class="filter-input-row">
+                {{data.currency}}
+              </div>
+              <div class="filter-input-row">
+                {{data.apno}}
+              </div>
+              <div class="filter-input-row">
+                {{data.edcDetails}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="row"><span>Balance : {{balanceAmt}}</span>   <span>Received:{{received}}</span></div>
+<!--<div class="row"><button (click)="changeMode('CASH')">Cash</button>   <button (click)="changeMode('CREDITARD')">Credit Card</button></div>-->
+<div class="row"><button class="btn" (click)="changeMode('CASH')">Cash</button><button style="padding-left:15px;" class="btn" (click)="changeMode('CREDITCARD')">Credit Card</button></div>
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button type="button" class="btn btn-default" [disabled]="currentIndex === -1" (click)="selectData($event, currentIndex)" disabled="true">Ok</button>
+          <button type="button" class="btn btn-default" disabled="true" >More</button>
+          <button type="button" class="btn btn-default" (click)="cancel()"> Cancel </button>
+          <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
