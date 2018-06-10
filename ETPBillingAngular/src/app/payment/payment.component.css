@@ -1,5 +1,5 @@
 .modal-dialog{
-    width: 850px;
+    width: 975px;
     overflow-y: initial !important
 }
 
@@ -34,7 +34,7 @@
 }
 
 .input-box{
-    width: auto;
+    width: 135px; margin-left:5px;
 }
 
 .modal-body{

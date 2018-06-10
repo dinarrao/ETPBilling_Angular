@@ -57,6 +57,8 @@ this.mode = 'CASH';
 
 this.sharedService.grossAmountValue.subscribe(grossAmount => {
      this.grossAmt=grossAmount;
+     this.cashAmount = grossAmount;
+     //this.cashAmount = 50;
     });
   }
   acceptCash(){
