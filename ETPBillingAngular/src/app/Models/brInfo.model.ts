@@ -1,0 +1,29 @@
+export class brInfo{
+    BRID:number;
+    BRNm:string;
+    SP:number;
+    ActID:number;
+    blnAllowScanItem:boolean;
+    comment:string;
+    dblMaxQuantityToScan:number;
+    dblScannedQuantity:number;
+    DiscAmt:number;
+    DiscOnDiscItm:number;
+    DiscPercentage:number;
+    eventCode:number;
+    GrpID:number;
+    intDiscountEditable:number;
+    LineNo:number;
+    ManualOverRide:number;
+    Msg:string;
+    Qty:number;
+    reference:string;
+    splitLine:false;
+    StrategyID:number;
+    TotalCondQuantity:number;
+    TransactionItmNo:string;
+    TtlAmt:number;
+    TtlBillAmt:number;
+    Type:number;
+    VerID:number;
+}

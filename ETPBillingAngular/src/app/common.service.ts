@@ -7,6 +7,8 @@ import 'rxjs/add/operator/catch';
 // import { catchError, map } from 'rxjs/operators';
 import { catchError, map, tap } from 'rxjs/operators';
 import { itemModel } from './Models/item.model';
+import {ordeItmLineInfo} from './Models/ordeItmLineInfo.model'
+
 
 
 
@@ -74,6 +76,14 @@ export class CommonService {
         catchError(this.handleError('Get_item_Data_Server', null))
       );
     }
+   
+    public Get_ordeItmLineInfo_Data_Server(url: string, body): Observable<any> {
+      console.log(url);
+      console.log(body);
+      return this.http.post<ordeItmLineInfo>(url,body, httpOptions).pipe(
+        catchError(this.handleError('Get_ordeItmLineInfo_Data_Server', null))
+      );
+    } 
   
   extractData(res: Response) {
     const body = res.json();

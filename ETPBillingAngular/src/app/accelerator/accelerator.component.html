@@ -1,6 +1,28 @@
+<!-- <div class="modal fade" id="itemLookupModal" tabindex="-1" role="dialog" aria-labelledby="itemLookupModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Quick Item LookUp</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
 
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 
-<div bsModal #childModalAccelerator="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm ">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,92 +33,95 @@
       </div>
       <div class="modal-body">
         <!-- <ng-content select=".modal-body">
-          </ng-content> -->
-          <div class="container">
-              <form >
-                
-                  <div class="row">
-                      <div class="tbl-item">
-                          <div class="tbl-header">
-                            <div class="filter-input-text">
-                              Business Rule Number
-                            </div>
-                            <div class="filter-input-text">
-                                Business Rule Name
-                            </div>
-                            <div class="filter-input-text">
-                              Discount Amt.
-                            </div>
-                            <div class="filter-input-text">
-                                Discount %
-                            </div>
-                            <div class="filter-input-text">
-                              Reference
-                            </div>
-                            <div class="filter-input-text">
-                                Comments
-                              </div>
-                          </div>
-                          <div class="tbl-row">
-                            <div class="row" *ngFor="let data of objItem">
-                              <div class="filter-input-row">
-                                
-                              </div>
-                              <div class="filter-input-row">
+        </ng-content> -->
+        <div class="filter-title">
+          <div class="filter-input-text">
+            Item Number
+          </div>
+          <div class="filter-input-text">
+            Name
+          </div>
+          <div class="filter-input-text">
+            Item Type
+          </div>
+          <div class="filter-input-text">
+            Product Group
+          </div>
+          <div class="filter-input-text">
+            Sales Price
+          </div>
+        </div>
+        <div class="filter-input">
+          <div class="filter-input-text">
+            <input type="text" id="flt_itemNumber" [(ngModel)]="itemNumber" class="input-box" name="flt_itemNumber">
+          </div>
+          <div class="filter-input-text">
+            <input type="text" id="flt_name" [(ngModel)]="name" class="input-box" name="flt_name">
+          </div>
+          <div class="filter-input-text">
+            <input type="text" id="flt_itemType" [(ngModel)]="itemType" class="input-box" name="flt_itemType">
+          </div>
+          <div class="filter-input-text">
+            <input type="text" id="flt_prodGroup" [(ngModel)]="prodGroup" class="input-box" name="flt_prodGroup">
+          </div>
+          <div class="filter-input-text">
+            <input type="text" id="flt_salesPrice" [(ngModel)]="salesPrice" class="input-box" name="flt_salesPrice">
+          </div>
+          <div class="filter-input-text">
+            <div class="fa fa-search form-control-feedback-btn right cursor-pointer" aria-hidden="true" (click)="searchProduct()"></div>
+          </div>
+        </div>
 
-                              </div>
-                              <div class="filter-input-row">
-                               
-                              </div>
-                              <div class="filter-input-row"> 
-                               
-                              </div>
-                              <div class="filter-input-row">
-                                
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="cname">Reference</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="text" id="txreference" name="cname" placeholder="Reference">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="comments">Comments</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="text" id="txtcomments" name="comments" placeholder="Comments">
-                  </div>
-                </div>
-               
-                <div class="row">
-                  <div class="col-25">
-                    <label for="mobileno">value</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="text" id="txtvalue" name="value" placeholder="Value" >
-                  </div>
-                  <div class="pull-left">
-                    <button type="button" class="btn btn-default" (click)="authencateMe($event)" >Save</button>
-                    <button type="button" class="btn btn-default" (click)="hide()"> Cancel </button>
-                    <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
-                  </div>
-                </div>
-               
-              </form>
+        <div class="tbl-item table table-striped s1">
+          <div class="tbl-header">
+            <div class="filter-input-text">
+              Item Number
             </div>
+            <div class="filter-input-text">
+              Name
+            </div>
+            <div class="filter-input-text">
+              Item Type
+            </div>
+            <div class="filter-input-text">
+              Product Group
+            </div>
+            <div class="filter-input-text">
+              Sales Price
+            </div>
+          </div>
+          <div class="tbl-row">
+            <div class="row" [ngClass]="{'row-hover': idx === tmpIndex }" *ngFor="let data of objItem; let idx = index" (mouseenter)="tmpIndex = idx"
+              (mouseleave)="tmpIndex = -1" [class.row-selected]="currentIndex === idx" (click)="selectRow($event, data, idx)"
+              (dblclick)="selectData($event, data)">
+              <div class="filter-input-row">
+                {{data.itemNumber}}
+              </div>
+              <div class="filter-input-row">
+                {{data.itemName}}
+              </div>
+              <div class="filter-input-row">
+                {{data.itemDescription}}
+              </div>
+              <div class="filter-input-row">
+                {{data.productGroup}}
+              </div>
+              <div class="filter-input-row">
+                {{data.salesPrice}}
+              </div>
+              <div class="filter-input-row" style="display: none;">
+                {{data.TAXAmount}}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="modal-footer">
         <div class="pull-left">
-          <button type="button" class="btn btn-default" (click)="authencateMe($event)" >Save</button>
-          <button type="button" class="btn btn-default" (click)="hide()"> Cancel </button>
+          <button type="button" class="btn btn-default" [disabled]="currentIndex === -1" (click)="selectData($event, currentIndex)" disabled="true">Ok</button>
+          <button type="button" class="btn btn-default" disabled="true" >More</button>
+          <button type="button" class="btn btn-default" (click)="cancel()"> Cancel </button>
           <button type="button" class="btn btn-default" (click)="hide()"> Close </button>
         </div>
       </div>

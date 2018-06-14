@@ -157,16 +157,16 @@
                           <td class="text-right" *ngIf="prod.isQtyEditable"><input id="qty{{idx}}" type="number" (ngModel)="editedQtyNum" (change)="changedQty($event,prod,idx)" value="{{prod.quantity}}"/></td>-->
                           <td  data-toggle="modal" data-target="#exampleModal" data-whatever="prod"></td>
                           <td class="text-right">{{prod.salesPrice}}</td>
-                          <td class="text-right"  (click)="childModalAccelerator.show()" >0
+                          <td class="text-right"  (click)="childModalAccelerator.show()" style="cursor: pointer;">{{prod.discountAmount}}
                               <app-accelerator #childModalAccelerator [title]="'Accelerator'">                      
                                 </app-accelerator>
                           </td>
-                          <td class="text-right">0</td>
-                          <td class="text-right">0</td>
+                          <td class="text-right">{{prod.TAXAmount}}</td>
+                          <td class="text-right">{{prod.totalChargeAmount}}</td>
                           <td class="text-right">{{prod.salesPrice * prod.quantity}}</td>
                           <td>01-SUZAN</td>
-                          <td>APP01</td>
-                          <td>PCS</td>
+                          <td>{{prod.location}}</td>
+                          <td>{{prod.UOM}}</td>
                         </tr>
                       </tbody>
 
